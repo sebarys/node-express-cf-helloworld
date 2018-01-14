@@ -1,0 +1,5 @@
+---
+applications:
+- name: node-helloworld-app
+  memory: 768M
+  buildpack: nodejs_buildpack
