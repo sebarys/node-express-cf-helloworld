@@ -9,10 +9,11 @@ router.get('/', function (req, res) {
 router.get('/resources', function (req, res) {
     service.getContent()
         .then(result => {
+            console.log(`Received result: ${result}`)
             res.send(result);
         })
         .catch(error => {
-            logger.error(error.message);
+            console.log(error.message);
             handleError(error, res);
         });
 });

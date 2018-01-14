@@ -6,10 +6,16 @@ const service = {};
 const SERVICE_URL = config.get('serviceUrl');
 
 service.getContent = function () {
-    return Promise.resolve({
-        status: "OK",
-        messsage: "content",
-        serviceUrl: SERVICE_URL
+    console.log(`Calling: ${SERVICE_URL}`)
+    return request.get({
+        url: SERVICE_URL,
+        headers: {
+            'User-Agent': 'Request-Promise'
+        }
+    })
+    .then((body) => {
+        console.log(`Successfully received: ${body}`);
+        return body;
     });
 }
 
